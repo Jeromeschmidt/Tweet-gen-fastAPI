@@ -1,17 +1,30 @@
 from fastapi import FastAPI, Request
-from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
+from bson import ObjectId
+from pydantic import BaseModel, Field
+import uvicorn
+from datetime import datetime
+import random
+
+import os
+from dotenv import load_dotenv
+from pymongo import MongoClient
+
 
 from sentence_generator.markov_chain import MarkovChain
-
-import random
 
 
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="templates")
+load_dotenv()
+client = MongoClient(os.getenv('MONGODB_URL'))
+db = client.get_default_database()
+tweet_collection = db.tweet_collection
 
+
+class TweetModel(BaseModel):
+    tweet: str
 
 
 with open("sentence_generator/sherlock.txt",'r') as file:
@@ -21,21 +34,45 @@ with open("sentence_generator/sherlock.txt",'r') as file:
 markovChain = MarkovChain(text)
 
 
-@app.get('/', response_class=HTMLResponse)
-async def index(request: Request):
-    sentence = markovChain.random_walk(random.randint(2, 20))
+@app.get('/')
+async def index(response_description="Generates Tweet using Markov chain of random length between 2 and 20"):
+    """
+    Generates Tweet using Markov chain of random length between 2 and 20
+    """
+    tweet = markovChain.random_walk(random.randint(2, 20))
 
-    # return {"message": sentence}
-    return templates.TemplateResponse("index.html", {"request": request, "sentence": sentence})
+    return {"tweet": tweet}
 
 
+@app.post("/{tweet}", response_description="Add new tweet")
+async def favorite_tweet(tweet: str):
+    """
+    Saves a generated tweet to db
+    """
+    tweet_dict = {"tweet": tweet, 'created_at': datetime.now(),}
+    new_tweet_id = tweet_collection.insert_one(tweet_dict).inserted_id
 
-@app.get('/view_favorites')
-def view_favorites():
-    # return render_template('view_favorites.html', tweets=tweet_coll.find().sort([('created_at', -1)]))
-    return {"message": "Favorites"}
+    return {"tweet": tweet}
 
-@app.get('/description')
-def description():
-    # return render_template('description.html')
-    return {"message": "description"}
+
+@app.get("/tweets", response_description="Get all saved tweets tweet")
+async def get_tweets():
+
+    tweets = db["tweet_collection"].find().sort([('created_at', -1)])
+
+    tweets_list = list()
+
+    for elm in tweets:
+        tweets_list.append((elm["tweet"], elm["created_at"]))
+
+    return {"tweets": tweets_list}
+
+@app.post('/{tweet_id}/delete', response_description="Delete specific tweet")
+def delete_tweet(tweet_id: str):
+    """Delete one tweet."""
+    db["tweet_collection"].delete_one({'_id': ObjectId(tweet_id)})
+    return {"message": "tweet deleted"}
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="127.0.0.1")

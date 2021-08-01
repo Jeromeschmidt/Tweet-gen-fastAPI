@@ -12,15 +12,20 @@ class MarkovChain(Dictogram):
         word_list[0] = re.sub("[^a-zA-Z]", '', word_list[0])
         self.start_tokens.add_count(word_list[0].lower(), 1)
 
+        # Get Start Words
         for i in range(1, len(word_list)-1, 1):
             if((word_list[i][0].isupper()) and word_list[i-1][len(word_list[i-1])-1] in string.punctuation):
                 word_list[i] = re.sub("[^a-zA-Z]", '', word_list[i])
                 self.start_tokens.add_count(word_list[i].lower(), 1)
+
+        # Get Stop Words
         for i in range(len(word_list)):
             if(word_list[i][len(word_list[i])-1] in string.punctuation):
                 word_list[i] = re.sub("[^a-zA-Z]", '', word_list[i])
                 # word_list[i] = word_list[i][:len(word_list[i])-1]
                 self.stop_tokens.add_count(word_list[i], 1)
+
+        # Get Words for sentences
         for i in range(len(word_list)-1):
             word_list[i] = re.sub("[^a-zA-Z]", '', word_list[i])
             word_list[i+1] = re.sub("[^a-zA-Z]", '', word_list[i+1])
