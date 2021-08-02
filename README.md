@@ -20,6 +20,39 @@ Tweets are generated using a Markov chain to build a word map of Sherlock Holmes
 |//{tweet_id}/delete | POST | Deletes a tweet |
 
 
+## 🚀 Getting Started
+
+## Prerequisites
+* python3.7
+
+## 💻 Local Development
+
+```bash
+# clone the repo
+git clone https://github.com/Jeromeschmidt/Tweet-gen-fastAPI
+```
+```bash
+# cd into the repo
+cd Tweet-gen-fastAPI
+```
+```bash
+# create a virtual environment
+python3.7 -m venv venv
+```
+```bash
+# Activate virtual environment
+source venv/bin/activate
+```
+```bash
+# Install the requirements
+pip3 install -r requirements.txt
+```
+```bash
+# run the program
+python3 app/trade.py
+```
+
+
 ## TODO:
 - Build and connect Frontend
 - Use Pydantic Types
