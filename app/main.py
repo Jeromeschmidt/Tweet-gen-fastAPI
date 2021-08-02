@@ -1,6 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
-from bson import ObjectId
+from bson.objectid import ObjectId
 from pydantic import BaseModel, Field
 import uvicorn
 from datetime import datetime
@@ -18,7 +18,8 @@ from sentence_generator.markov_chain import MarkovChain
 app = FastAPI()
 
 load_dotenv()
-client = MongoClient(os.getenv('MONGODB_URL'))
+# client = MongoClient(os.getenv('MONGODB_URL'))
+client = MongoClient('mongodb+srv://fastAPITweet:Jms1014neb@cluster0.solua.mongodb.net/mongoDB?retryWrites=true&w=majority')
 db = client.get_default_database()
 tweet_collection = db.tweet_collection
 
@@ -27,7 +28,7 @@ class TweetModel(BaseModel):
     tweet: str
 
 
-with open("app/sentence_generator/sherlock.txt",'r') as file:
+with open("sentence_generator/sherlock.txt",'r') as file:
     text = file.read()
     text = text.split()
 
