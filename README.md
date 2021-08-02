@@ -51,7 +51,6 @@ pip3 install -r requirements.txt
 python3 app/trade.py
 ```
 
-
 ## TODO:
 - Build and connect Frontend
 - Implement Pydantic Types
