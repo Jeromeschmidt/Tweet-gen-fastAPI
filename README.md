@@ -5,7 +5,11 @@
 - FastAPI
 - MongoDB
 - Docker
+- Heroku
 
+[Heroku](https://sherlock-tweetgen-fastapi.herokuapp.com/)
+[Docs](https://sherlock-tweetgen-fastapi.herokuapp.com/docs)
+[Github](https://github.com/Jeromeschmidt/Tweet-gen-fastAPI)
 
 ## Tweet Generation:
 Tweets are generated using a Markov chain to build a word map of Sherlock Holmes text. It then performs a random walk to create sentences starting with start words and ending with stop words and punctuations.
@@ -55,4 +59,4 @@ python3 app/trade.py
 
 ## TODO:
 - Build and connect Frontend
-- Use Pydantic Types
+- Implement Pydantic Types
