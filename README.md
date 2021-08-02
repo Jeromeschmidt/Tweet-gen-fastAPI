@@ -24,11 +24,6 @@ Tweets are generated using a Markov chain to build a word map of Sherlock Holmes
 |//{tweet_id}/delete | POST | Deletes a tweet |
 
 
-## 🚀 Getting Started
-
-## Prerequisites
-* python3.7
-
 ## 💻 Local Development
 
 ```bash
@@ -60,6 +55,7 @@ python3 app/trade.py
 ## TODO:
 - Build and connect Frontend
 - Implement Pydantic Types
+- Add CI
 
 ## Resources:
 https://fastapi.tiangolo.com/
