@@ -18,8 +18,7 @@ from sentence_generator.markov_chain import MarkovChain
 app = FastAPI()
 
 load_dotenv()
-# client = MongoClient(os.getenv('MONGODB_URL'))
-client = MongoClient('mongodb+srv://fastAPITweet:Jms1014neb@cluster0.solua.mongodb.net/mongoDB?retryWrites=true&w=majority')
+client = MongoClient(os.getenv('MONGODB_URL'))
 db = client.get_default_database()
 tweet_collection = db.tweet_collection
 
@@ -47,9 +46,6 @@ async def index(response_description="Generates Tweet using Markov chain of rand
 
 @app.post("/{tweet}", response_description="Add new tweet")
 async def favorite_tweet(tweet: str):
-    """
-    Saves a generated tweet to db
-    """
     tweet_dict = {"tweet": tweet, 'created_at': datetime.now(),}
     new_tweet_id = tweet_collection.insert_one(tweet_dict).inserted_id
 
@@ -58,7 +54,6 @@ async def favorite_tweet(tweet: str):
 
 @app.get("/tweets", response_description="Get all saved tweets tweet")
 async def get_tweets():
-
     tweets = db["tweet_collection"].find().sort([('created_at', -1)])
 
     tweets_list = list()
@@ -76,4 +71,5 @@ def delete_tweet(tweet_id: str):
 
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="127.0.0.1")
+    port = int(os.environ.get('PORT', 5000))
+    uvicorn.run(app, host = '0.0.0.0', port = port)

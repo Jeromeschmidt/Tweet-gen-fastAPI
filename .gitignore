@@ -2,5 +2,4 @@ venv
 env
 .env
 docker-compose.yml
-heroku.yml
 Procfile
