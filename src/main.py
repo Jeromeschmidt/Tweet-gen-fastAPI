@@ -18,8 +18,7 @@ from sentence_generator.markov_chain import MarkovChain
 app = FastAPI()
 
 load_dotenv()
-# client = MongoClient(os.getenv('MONGODB_URL'))
-client = MongoClient('mongodb+srv://fastAPITweet:Jms1014neb@cluster0.solua.mongodb.net/mongoDB?retryWrites=true&w=majority')
+client = MongoClient(os.getenv('MONGODB_URL'))
 db = client.get_default_database()
 tweet_collection = db.tweet_collection
 
