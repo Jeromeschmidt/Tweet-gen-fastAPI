@@ -1,11 +1,12 @@
-FROM python:latest
+FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
-COPY ./requirements.txt /app/requirements.txt
+ENV PYTHONPATH "${PYTHONPATH}:/"
+ENV PORT=8000
 
-RUN pip install -r /app/requirements.txt
+RUN pip install --upgrade pip
 
-COPY app/ /app
+COPY ./requirements.txt /app/
 
-WORKDIR /app
+RUN pip install -r requirements.txt
 
-CMD ["python3", "main.py"]
+COPY ./app /app
