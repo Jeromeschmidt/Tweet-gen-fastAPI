@@ -11,4 +11,4 @@ RUN pip install -r requirements.txt
 
 COPY ./app /app
 
-CMD ["python3", "app/main.py"]
+CMD ["python3", "main.py"]
