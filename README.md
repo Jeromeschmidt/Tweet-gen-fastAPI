@@ -8,7 +8,9 @@
 - Heroku
 
 [Heroku](https://sherlock-tweetgen-fastapi.herokuapp.com/)
+
 [Docs](https://sherlock-tweetgen-fastapi.herokuapp.com/docs)
+
 [Github](https://github.com/Jeromeschmidt/Tweet-gen-fastAPI)
 
 ## Tweet Generation:
@@ -59,7 +61,11 @@ python3 app/main.py
 
 ## Resources:
 https://fastapi.tiangolo.com/
+
 https://medium.com/analytics-vidhya/dockerize-your-python-flask-application-and-deploy-it-onto-heroku-650b7a605cc9
+
 https://docs.docker.com/
+
 https://devcenter.heroku.com/
+
 https://ycd.github.io/manage-fastapi/
