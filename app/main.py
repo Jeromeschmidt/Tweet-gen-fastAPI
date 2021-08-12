@@ -48,7 +48,6 @@ async def index(response_description="Generates Tweet using Markov chain of rand
 async def favorite_tweet(tweet: str):
     tweet_dict = {"tweet": tweet, 'created_at': datetime.now(),}
     new_tweet_id = tweet_collection.insert_one(tweet_dict).inserted_id
-
     return {"tweet": tweet}
 
 
