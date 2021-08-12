@@ -1,6 +1,6 @@
 import random
 import re
-from sentence_generator.dictogram import Dictogram
+from core.sentence_generator.dictogram import Dictogram
 import string
 
 class MarkovChain(Dictogram):
@@ -43,7 +43,7 @@ class MarkovChain(Dictogram):
         for i in range(length-1):
             word = self[word].sample()
             sentence += word + " "
-        sentence = sentence + self.end_word() + ". "
+        sentence = sentence + self.end_word() + "."
         return sentence
 
     def start_word(self):

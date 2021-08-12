@@ -2,7 +2,7 @@
 
 from __future__ import division, print_function  # Python 2 and 3 compatibility
 import random
-from sentence_generator.sample import find_weights_dict, find_ranges
+from core.sentence_generator.sample import find_weights_dict, find_ranges
 
 
 class Dictogram(dict):
