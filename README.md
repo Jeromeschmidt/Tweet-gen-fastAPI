@@ -18,10 +18,12 @@ Tweets are generated using a Markov chain to build a word map of Sherlock Holmes
 ## Endpoints:
 | Route | Method | Description |
 | ----------- | ----------- | ----------- |
-|/ |GET | Generates and returns a tweet |
-|/{tweet}| POST | Saves a generated tweet |
-|/ |GET | Gets a list of all saved tweets |
-|//{tweet_id}/delete | POST | Deletes a tweet |
+|/ |GET | Returns an index page |
+|/tweets/ |GET | Generates and returns a tweet |
+|/tweets/{tweet_id}  |GET | Returns a specific tweet |
+|/tweets/{tweet}| POST | Saves a generated tweet |
+|/tweets/all |GET | Gets a list of all saved tweets |
+|/tweets/{tweet_id} | DELETE | Deletes a tweet |
 
 
 ## 💻 Local Development
@@ -53,7 +55,6 @@ python3 app/trade.py
 
 ## TODO:
 - Build and connect Frontend
-- Implement Pydantic Types
 - Add CI
 
 ## Resources:
@@ -61,3 +62,4 @@ https://fastapi.tiangolo.com/
 https://medium.com/analytics-vidhya/dockerize-your-python-flask-application-and-deploy-it-onto-heroku-650b7a605cc9
 https://docs.docker.com/
 https://devcenter.heroku.com/
+https://ycd.github.io/manage-fastapi/
