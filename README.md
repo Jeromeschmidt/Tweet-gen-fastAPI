@@ -50,7 +50,7 @@ pip3 install -r requirements.txt
 ```
 ```bash
 # run the program
-python3 app/trade.py
+python3 app/main.py
 ```
 
 ## TODO:
