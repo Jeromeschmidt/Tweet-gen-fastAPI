@@ -57,7 +57,6 @@ class MarkovChain(Dictogram):
 
     def end_word(self):
         dart = random.randint(0, len(self.stop_tokens)+1)
-        print(dart)
         fence = 0
         while 1:
             for key in self.stop_tokens.keys():
