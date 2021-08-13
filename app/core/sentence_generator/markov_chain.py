@@ -57,13 +57,13 @@ class MarkovChain(Dictogram):
 
     def end_word(self):
         dart = random.randint(0, len(self.stop_tokens)+1)
+        print(dart)
         fence = 0
         while 1:
-            for elm in self.stop_tokens:
-                for key in self.stop_tokens.keys():
-                    fence += self.stop_tokens[key]
-                    if fence >= dart:
-                        return elm
+            for key in self.stop_tokens.keys():
+                fence += self.stop_tokens[key]
+                if fence >= dart:
+                    return key
 
 if __name__ == '__main__':
     words = "One fish blue fish. Red fish blue fish."
