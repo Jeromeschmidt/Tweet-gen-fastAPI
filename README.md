@@ -45,10 +45,10 @@ Tweets are generated using a Markov chain to build a word map of Sherlock Holmes
 ![/tweets/all | GET](/assets/images/get_all_tweets.png)
 
 /tweets/{tweet_id} | DELETE | Success
-![/tweets/{tweet_id} | DELETE | success](/assets/images/favorite_tweet_success.png)
+![/tweets/{tweet_id} | DELETE | success](/assets/images/delete_tweet_success.png)
 
 /tweets/{tweet_id} | DELETE | Failure
-![/tweets/{tweet_id} | DELETE | success](/assets/images/favorite_tweet_failure.png)
+![/tweets/{tweet_id} | DELETE | success](/assets/images/delete_tweet_failure.png)
 
 
 
