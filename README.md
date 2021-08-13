@@ -30,6 +30,27 @@ Tweets are generated using a Markov chain to build a word map of Sherlock Holmes
 |/tweets/all |GET | Gets a list of all saved tweets |
 |/tweets/{tweet_id} | DELETE | Deletes a tweet |
 
+### Examples Responses:
+
+/tweets/ | GET
+![/tweets/ | GET](/assets/images/tweet.png)
+
+/tweets/{tweet_id} | GET
+![/tweets/{tweet_id} | GET](/assets/images/retrieve_tweet.png)
+
+/tweets/{tweet} | POST
+![/tweets/{tweet} | POST](/assets/images/favorite_tweet.png)
+
+/tweets/all | GET
+![/tweets/all | GET](/assets/images/get_all_tweets.png)
+
+/tweets/{tweet_id} | DELETE | Success
+![/tweets/{tweet_id} | DELETE | success](/assets/images/favorite_tweet_success.png)
+
+/tweets/{tweet_id} | DELETE | Failure
+![/tweets/{tweet_id} | DELETE | success](/assets/images/favorite_tweet_failure.png)
+
+
 
 ## 💻 Local Development
 
