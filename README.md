@@ -3,9 +3,10 @@
 ## Tech Stack
 - Python
 - FastAPI
-- MongoDB
+- MongoDB Atlas
 - Docker
 - Heroku
+- Pytest
 
 [Heroku](https://sherlock-tweetgen-fastapi.herokuapp.com/)
 
@@ -16,8 +17,10 @@
 ## Tweet Generation:
 Tweets are generated using a Markov chain to build a word map of Sherlock Holmes text. It then performs a random walk to create sentences starting with start words and ending with stop words and punctuations.
 
+## API
 
-## Endpoints:
+
+### Endpoints:
 | Route | Method | Description |
 | ----------- | ----------- | ----------- |
 |/ |GET | Returns an index page |
