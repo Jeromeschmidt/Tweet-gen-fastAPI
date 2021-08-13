@@ -8,7 +8,7 @@
 - Heroku
 - Pytest
 
-[Heroku](https://sherlock-tweetgen-fastapi.herokuapp.com/)
+[Heroku](http://sherlock-tweetgen-fastapi.herokuapp.com/tweets/)
 
 [Docs](https://sherlock-tweetgen-fastapi.herokuapp.com/docs)
 
