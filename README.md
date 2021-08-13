@@ -79,6 +79,13 @@ pip3 install -r requirements.txt
 python3 app/main.py
 ```
 
+### Test
+```bash
+# run Pytest
+python3 -m pytest -s app/tests
+```
+
+
 ## TODO:
 - Build and connect Frontend
 - Add CI
