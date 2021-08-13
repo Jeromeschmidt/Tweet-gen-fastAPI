@@ -82,7 +82,8 @@ python3 app/main.py
 ### Test
 ```bash
 # run Pytest
-python3 -m pytest -s app/tests
+cd app
+python3 -m pytest -s tests
 ```
 
 
